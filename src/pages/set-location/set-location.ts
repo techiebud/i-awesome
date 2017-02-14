@@ -13,6 +13,9 @@ export class SetLocationPage {
 
   constructor(private navParams: NavParams, private viewCtrl: ViewController) {
      this.location = this.navParams.get("location");
+     if (this.navParams.get('isSet')) {
+       this.marker = this.location;
+     }   
 
   }
 
@@ -24,7 +27,7 @@ export class SetLocationPage {
       
   }
   onConfirm() {
-
+    console.debug("onConfirm");
     this.viewCtrl.dismiss({location: this.marker});
   }
 
@@ -32,6 +35,7 @@ export class SetLocationPage {
 
 
   onAbort() {
+    console.debug("onAbort");
      this.viewCtrl.dismiss();
     
   }

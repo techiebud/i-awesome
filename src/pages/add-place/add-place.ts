@@ -10,25 +10,37 @@ import { SetLocationPage } from './../set-location/set-location';
 })
 export class AddPlacePage {
   location: Location = {
-     lat: 40.7624324,
-     lng: -73.9759827
+    lat: 40.7624324,
+    lng: -73.9759827
   }
-  constructor(private modalCtrl: ModalController) {}
+  locationIsSet = false;
+  constructor(private modalCtrl: ModalController) { }
 
   onSubmit(form: NgForm) {
-      console.debug("onSubmit");
-      console.log(form.value);
+    console.debug("onSubmit");
+    console.log(form.value);
   }
 
   onOpenMap() {
-
-      const modal = this.modalCtrl.create(SetLocationPage, {location: this.location});
-      modal.present();
-
-      
     
-  }
-  
+    const modal = this.modalCtrl.create(SetLocationPage, { location: this.location, isSet: this.locationIsSet });
+    modal.present();
 
-  
+    modal.onDidDismiss(data => {
+      if (data) {
+          this.location = data.location;
+          this.locationIsSet = true;
+
+      }
+    }
+
+
+    );
+
+
+
+  }
+
+
+
 }
