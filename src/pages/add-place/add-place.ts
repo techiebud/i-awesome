@@ -1,7 +1,7 @@
+import { Camera, Geolocation } from 'ionic-native';
 import { LoadingController, ModalController, ToastController } from "ionic-angular";
 
 import { Component } from '@angular/core';
-import { Geolocation } from 'ionic-native';
 import { Location } from './../../models/location';
 import { NgForm } from "@angular/forms";
 import { SetLocationPage } from './../set-location/set-location';
@@ -42,7 +42,6 @@ export class AddPlacePage {
     );
 
 
-
   }
 
   onLocate() {
@@ -79,6 +78,25 @@ export class AddPlacePage {
           );
 
           
+      }
+
+      onTakePhoto() {
+
+          Camera.getPicture({
+            encodingType: Camera.EncodingType.JPEG,
+            correctOrientation: true
+            
+          })
+          .then(
+            imageData => {
+              console.log(imageData);
+            }
+          )
+          .catch(
+            error => {
+              console.log(error);
+            }
+          )
       }
     
   }
