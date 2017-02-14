@@ -7,11 +7,21 @@ import { NavParams } from 'ionic-angular';
   templateUrl: 'set-location.html'
 })
 export class SetLocationPage {
-  location: Location
+  location: Location;
+  marker: Location;
 
   constructor(private navParams: NavParams) {
      this.location = this.navParams.get("location");
 
+  }
+
+  onSetMarker(event: any) {
+     console.debug("event");
+     console.log(event);
+     this.marker = new Location(event.coords.lat, event.coords.lng);
+        
+    
+      
   }
       
 

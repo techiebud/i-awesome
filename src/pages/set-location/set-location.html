@@ -13,7 +13,14 @@
     <ion-row>
       <ion-col>
 
-        <sebm-google-map [latitude]="location.lat" [longitude]="location.lng" [zoom]="16">
+        <sebm-google-map [latitude]="location.lat" [longitude]="location.lng" 
+        [zoom]="16" (mapClick)="onSetMarker($event)">
+
+          <sebm-google-map-marker [latitude]="marker.lat" [longitude]="marker.lng" *ngIf="marker">
+           
+
+
+          </sebm-google-map-marker>
         
 
 
