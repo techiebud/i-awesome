@@ -2,6 +2,7 @@ import { NavParams, ViewController } from 'ionic-angular';
 
 import { Component } from '@angular/core';
 import { Place } from './../../models/place';
+import { PlacesService } from './../../services/places';
 
 @Component({
   selector: 'page-place',
@@ -9,9 +10,12 @@ import { Place } from './../../models/place';
 })
 export class PlacePage {
   place: Place;
-  constructor(private navParams: NavParams, private viewCtrl: ViewController) {
+  index: number;
+  constructor(private navParams: NavParams, private viewCtrl: ViewController, 
+              private placesService: PlacesService) {
 
      this.place = this.navParams.get('place');
+     this.index = this.navParams.get('index');
      
     
   }
@@ -21,7 +25,7 @@ export class PlacePage {
   }
 
   onDelete() {
-     
+     this.placesService.deletePlace(this.index);
      this.onLeave();
      
     

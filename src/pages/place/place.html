@@ -21,7 +21,7 @@
       </ion-row>
 
       <ion-row>
-          <ion-col>
+          <ion-col text-center>
             <p>{{place.description}}</p>
           </ion-col>
 
@@ -48,7 +48,12 @@
             block
             (click)="onLeave()"
             >Leave</button>
-            <button ion-button block (click)="onDelete()">Delete
+          
+          </ion-col>
+
+          <ion-col>
+
+              <button ion-button block color="danger" (click)="onDelete()">Delete
           
 
             </button>
