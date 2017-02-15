@@ -136,7 +136,8 @@ export class AddPlacePage {
 
           message: 'Could not take the image.    Please try again',
           duration: 2500
-        })
+        });
+        toast.present();
       }
       )
   }
