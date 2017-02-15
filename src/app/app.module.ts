@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { PlacePage } from './../pages/place/place';
 import { PlacesService } from './../services/places';
 import { SetLocationPage } from './../pages/set-location/set-location';
+import { Storage } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,6 @@ import { SetLocationPage } from './../pages/set-location/set-location';
     SetLocationPage,
     PlacePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlacesService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},PlacesService, Storage]
 })
 export class AppModule {}
