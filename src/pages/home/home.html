@@ -17,7 +17,7 @@
 
   <ion-card *ngFor="let place of places" (click)="onOpenPlace(place)">
       <img [src]="place.imageUrl" alt="">
-      <ion-card-content>
+      <ion-card-content text-center>
           <ion-card-title>
               {{ place.title }}
 
